@@ -1,57 +1,167 @@
-body {
-    font-family: Arial, sans-serif;
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
+
+/* --- Reset e Configurações Globais (Melhora) --- */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* Animação de rolagem suave */
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f0f0; /* Fundo um pouco mais claro */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- Header e Navegação (Melhora e Animação) --- */
 header {
-    background-color: #222;
+    background-color: #1a1a1a;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 25px 15px;
+    position: sticky; /* Menu fixo no topo */
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3em;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
 }
 
 nav ul li {
-    display: inline;
-    margin: 0 15px;
+    display: inline-block;
+    margin: 0 10px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animação de hover */
 }
 
+nav ul li a:hover {
+    background-color: #ffc107; /* Cor de destaque (amarelo) */
+    color: #1a1a1a;
+}
+
+/* --- Estrutura das Seções (Melhora e Animação) --- */
 section {
-    padding: 50px;
+    padding: 60px 40px;
     background: white;
-    margin: 20px auto;
-    width: 80%;
-    box-shadow: 2px 2px 10px #aaa;
+    margin: 30px auto;
+    width: 85%;
+    max-width: 900px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    opacity: 0; /* Começa invisível para a animação */
+    transform: translateY(20px); /* Leve deslocamento para a animação */
+    animation: fadeIn 0.6s forwards; /* Animação de entrada */
+    animation-timeline: view(); /* Animação acontece ao rolar para a seção */
+}
+
+/* Keyframe para a animação de entrada */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h2 {
-    color: #333;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5em;
+    color: #222;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #ffc107;
+    padding-bottom: 10px;
 }
 
-#ferrez{
-    width: 150px;
-    height: 200px;
+/* --- Estilização de Imagens (Correção e Melhora) --- */
+#ferrez, #capa_livro {
+    width: 180px;
+    height: auto; /* Altura automática para manter proporção */
+    border-radius: 8px;
+    float: left;
+    margin: 0 25px 15px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-#capa_livro{
-    width: 150px;
-    height: 200px;
-}
-
+/* --- Citações e Trechos (Melhora) --- */
 blockquote {
     font-style: italic;
+    color: #444;
+    border-left: 5px solid #ffc107;
+    padding: 15px 20px;
+    margin: 20px 0;
+    background-color: #fafafa;
+    border-radius: 0 8px 8px 0;
+}
+
+#trechos ul {
+    list-style: none;
+}
+
+#trechos ul li {
+    margin-bottom: 30px;
+}
+
+#trechos small {
+    display: block;
+    margin-top: 10px;
     color: #555;
-    border-left: 4px solid #222;
-    padding-left: 10px;
+    font-style: normal;
+}
+
+/* --- Footer (Melhora) --- */
+footer {
+    background-color: #1a1a1a;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+}
+
+/* --- Responsividade (Melhora) --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    #ferrez, #capa_livro {
+        float: none;
+        display: block;
+        margin: 0 auto 25px auto;
+        width: 150px;
+    }
+
+    section {
+        width: 95%;
+        padding: 40px 20px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
 }
